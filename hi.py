@@ -8,7 +8,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 # Load the provided time series data
-file_path = '/Users/lok/5DE/processed_merged.csv'
+file_path = '/Users/lok/5DE/DAM_datetime.csv'
 data = pd.read_csv(file_path)
 
 # Displaying the first few rows to understand the data structure
@@ -41,7 +41,7 @@ def create_sequences(input_data, sequence_length):
         ys.append(y)
     return np.array(xs), np.array(ys)
 
-sequence_length = 48  # using 24 hours of data to predict the next hour
+sequence_length = 24  # using 24 hours of data to predict the next hour
 
 # Creating sequences for training and validation data
 X_train, y_train = create_sequences(train_scaled, sequence_length)
@@ -50,10 +50,9 @@ X_val, y_val = create_sequences(validation_scaled, sequence_length)
 X_train.shape, y_train.shape, X_val.shape, y_val.shape
 
 
-
 # Defining the LSTM model
 class WindGenerationLSTM(nn.Module):
-    def __init__(self, input_size=1, hidden_layer_size=100, output_size=1):
+    def __init__(self, input_size=1, hidden_layer_size=50, output_size=1):
         super(WindGenerationLSTM, self).__init__()
         self.hidden_layer_size = hidden_layer_size
 
@@ -73,6 +72,7 @@ class WindGenerationLSTM(nn.Module):
 model = WindGenerationLSTM()
 loss_function = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
+# scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)  # adjust step_size and gamma as needed
 
 # Converting data to PyTorch tensors
 X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
@@ -105,6 +105,7 @@ for epoch in range(epochs):
 
     avg_train_loss = total_train_loss / len(X_train_tensor)
     train_losses.append(avg_train_loss)
+    # scheduler.step()
 
     # Validation loop
     model.eval()  # Set the model to evaluation mode
@@ -117,6 +118,7 @@ for epoch in range(epochs):
 
         avg_val_loss = total_val_loss / len(X_val_tensor)
         val_losses.append(avg_val_loss)
+
 
     print(f'Epoch {epoch+1} \t Training Loss: {avg_train_loss:.4f} \t Validation Loss: {avg_val_loss:.4f}')
 
@@ -138,19 +140,19 @@ import numpy as np
 # 'data' is your dataset DataFrame with a column 'MW' for wind generation
 
 # Extracting the last 24 hours as the input sequence
-last_sequence = data['MW'].values[-48:]
+last_sequence = data['MW'].values[-24:]
 
 last_sequence_scaled = scaler.transform(last_sequence.reshape(-1, 1))
 
 # Reshape to the format (sequence_length, batch_size, input_size)
-input_tensor = torch.tensor(last_sequence_scaled.reshape(48, 1, 1), dtype=torch.float32)
+input_tensor = torch.tensor(last_sequence_scaled.reshape(24, 1, 1), dtype=torch.float32)
 
 predictions = []
 
 model.eval()  # Set the model to evaluation mode
 
 # Predicting the next 24 hours
-for _ in range(48):
+for _ in range(24):
     with torch.no_grad():
         pred = model(input_tensor)
         predictions.append(pred.numpy().item())
