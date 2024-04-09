@@ -1,7 +1,5 @@
-==============================
-
-Round 1 Project Assessment - Five Dimensions Energy, LLC
-Loc Tran
+# Round 1 Project Assessment - Five Dimensions Energy, LLC
+# Loc Tran
 
 Initial setup
 ------------
