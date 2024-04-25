@@ -4,18 +4,13 @@
 Initial setup
 ------------
 
-1. Clone the repository
-    ```bash
-    git clone https://github.com/tranhlok/ViZDoom-DQNs.git
-    ```
-
-2. Setup and activate the virtual environment
+1. Setup and activate the virtual environment
     ```bash
     python3 -m venv .
     source ./bin/activate
     ```
 
-3. Install the required dependencies
+2. Install the required dependencies
     ```bash
     pip install -r requirements.txt
     ```
