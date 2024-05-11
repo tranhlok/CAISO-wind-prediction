@@ -4,16 +4,41 @@
 Initial setup
 ------------
 
-1. Setup and activate the virtual environment
-    ```bash
-    python3 -m venv .
-    source ./bin/activate
-    ```
+1. **Clone the Repository**
 
-2. Install the required dependencies
-    ```bash
-    pip install -r requirements.txt
-    ```
+   To get started, clone this repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/tranhlok/CAISO-wind-prediction.git
+cd CAISO-wind-prediction
+```
+2. **Set Up a Virtual Environment** (optional but recommended)
+
+Create a new virtual environment by running:
+
+
+```bash
+python3 -m venv venv
+```
+
+Activate the virtual environment:
+- On Windows:
+  ```bash
+  .\venv\Scripts\activate
+  ```
+- On macOS and Linux:
+  ```bash
+  source venv/bin/activate
+  ```
+
+
+3. **Install Dependencies**
+
+Install the required Python packages with pip:
+
+```bash
+pip install -r requirements.txt
+```
 
 Instructions
 ------------
