@@ -1,5 +1,4 @@
-# Round 1 Project Assessment - Five Dimensions Energy, LLC
-# Loc Tran - loctran@nyu.edu - +1 646 200 1371
+# California ISO Wind Energy Prediction
 
 Initial setup
 ------------
