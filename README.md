@@ -76,10 +76,10 @@ Please run the jupyter notebooks based on the following order:
     ├── data               <- data folder
     ├── models             <- Trained and serialized models, model 
     |                         predictions, or model summaries
-    ├── 1. web-scraping.ipynb
+    ├── 1. par1_web_scraping.ipynb
     ├── 2. data_processing.ipynb
     ├── 3. visualization.ipynb
-    ├── 4. wind_sp15_prediction.ipynb 
+    ├── 4. part2_wind_sp15_prediction.ipynb 
     ├── requirement.txt
 
 ## Resources
