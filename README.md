@@ -21,7 +21,7 @@ Scrap actual and forecasted wind generation data from 2024-03-16 onwards. The pr
     - MARKET_RUN_ID: Use categories DAM (forecasted) and ACTUAL (realized)
 
 ### Part 2: Wind Power Prediction
-Predict actual power generation by wind plants of SP15 hub on 2024-04-09.
+Predict actual power generation by wind plants of SP15 hub on 2024-04-09 using LSTM models built on Python, Pytorch, numpy, Pandas and scikit-learn
 
 ## Initial setup
 
