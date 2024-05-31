@@ -1,4 +1,4 @@
-# California ISO Wind Energy Prediction
+# California ISO Wind Power Generation Prediction
 
 Initial setup
 ------------
