@@ -25,41 +25,39 @@ Predict actual power generation by wind plants of SP15 hub on 2024-04-09 using L
 
 ## Initial setup
 
-1. **Clone the Repository**
+### 1. Clone the Repository
 
-   To get started, clone this repository to your local machine using the following command:
+To get started, clone this repository to your local machine using the following command:
 
-```bash
-git clone https://github.com/tranhlok/CAISO-wind-prediction.git
-cd CAISO-wind-prediction
-```
-2. **Set Up a Virtual Environment** (optional but recommended)
+`git clone https://github.com/tranhlok/market-forecaster.git`
+
+`cd market-forecaster`
+
+### 2. Set Up a Virtual Environment (optional but recommended)
 
 Create a new virtual environment by running:
 
+`python -m venv venv`
 
-```bash
-python3 -m venv venv
-```
+OR
+
+`python3 -m venv venv`
 
 Activate the virtual environment:
 - On Windows:
-  ```bash
-  .\venv\Scripts\activate
-  ```
+
+  `.\venv\Scripts\activate`
+
 - On macOS and Linux:
-  ```bash
-  source venv/bin/activate
-  ```
+
+  `source venv/bin/activate`
 
 
-3. **Install Dependencies**
+### 3. Install Dependencies
 
-Install the required Python packages with pip:
+Install the required Python packages with pip: 
 
-```bash
-pip install -r requirements.txt
-```
+`pip install -r requirements.txt`
 
 ## Instructions
 
@@ -76,10 +74,11 @@ Please run the jupyter notebooks based on the following order:
     ├── data               <- data folder
     ├── models             <- Trained and serialized models, model 
     |                         predictions, or model summaries
-    ├── 1. par1_web_scraping.ipynb
-    ├── 2. data_processing.ipynb
-    ├── 3. visualization.ipynb
-    ├── 4. part2_wind_sp15_prediction.ipynb 
+    ├── notebooks          <- notebooks folder
+        ├── 1. par1_web_scraping.ipynb
+        ├── 2. data_processing.ipynb
+        ├── 3. visualization.ipynb
+        ├── 4. part2_wind_sp15_prediction.ipynb 
     ├── requirement.txt
 
 ## Resources
